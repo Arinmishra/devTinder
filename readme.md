@@ -60,17 +60,18 @@ npm run dev
 
 ## 📡 API Endpoints
 
-| Method | Endpoint                                 | Description                                    |
-| ------ | ---------------------------------------- | ---------------------------------------------- |
-| POST   | `/api/auth/signup`                       | Register a new user                            |
-| POST   | `/api/auth/login`                        | Login and get token                            |
-| POST   | `/api/auth/logout`                       | Logout the user                                |
-| GET    | `/api/profile/view`                      | View user profile                              |
-| POST   | `/api/request/send/:status/:toUserId`    | Send a connection request (interested/ignored) |
-| PUT    | `/api/request/review/:status/:requestId` | Review a request (accept/reject)               |
-| GET    | `/api/user/request/received`             | View received connection requests              |
-| GET    | `/api/user/connections`                  | View accepted connections                      |
-| GET    | `/api/feed`                              | View developer feed                            |
+| Method | Endpoint                             | Description                                    |
+| ------ | ------------------------------------ | ---------------------------------------------- |
+| POST   | `/auth/signup`                       | Register a new user                            |
+| POST   | `/auth/login`                        | Login and get token                            |
+| POST   | `/auth/logout`                       | Logout the user                                |
+| GET    | `/profile/view`                      | View user profile                              |
+| PATCH  | `/profile/edit`                      | Edit user profile                              |
+| POST   | `/request/send/:status/:toUserId`    | Send a connection request (interested/ignored) |
+| POST   | `/request/review/:status/:requestId` | Review a request (accept/reject)               |
+| GET    | `/user/request/received`             | View received connection requests              |
+| GET    | `/user/connections`                  | View accepted connections                      |
+| GET    | `/feed`                              | View developer feed                            |
 
 <!-- ## 🚀 Deployment
 
