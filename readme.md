@@ -10,6 +10,7 @@ The backend for **DevTinder**, a developer matchmaking platform, provides authen
 - 🏷 **Profile Management** (View and update developer profiles)
 - 🔗 **Connection Requests** (Send, review, and manage requests)
 - 🤝 **User Connections** (Track and manage accepted connections)
+- 💬 **Real-Time Chat** (Instant messaging between connected users)
 - 🌍 **Feed System** (Discover and interact with other developers)
 - 📊 **Database Integration** (Efficient data storage and retrieval)
 - 🚀 **Scalable API** (RESTful API with proper endpoints)
@@ -19,8 +20,7 @@ The backend for **DevTinder**, a developer matchmaking platform, provides authen
 - **Backend**: Node.js, Express.js
 - **Database**: MongoDB
 - **Authentication**: JWT, bcrypt
-  <!-- - **Real-time Communication**: Socket.io (if chat is included) -->
-  <!-- - **Deployment**: Render / DigitalOcean / AWS -->
+- **Real-time Communication**: Socket.io
 - **API Testing**: Postman
 
 ## 📂 Folder Structure
@@ -43,10 +43,10 @@ DevTinder-Backend/
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/devtinder-backend.git
+git clone https://github.com/your-username/devtinder.git
 
 # Navigate to project directory
-cd devtinder-backend
+cd devtinder
 
 # Install dependencies
 npm install
@@ -72,18 +72,35 @@ npm run dev
 | GET    | `/user/request/received`             | View received connection requests              |
 | GET    | `/user/connections`                  | View accepted connections                      |
 | GET    | `/feed`                              | View developer feed                            |
+| GET    | `/chat/:targetUserId`                | Fetch or create a chat between two users       |
+| POST   | `/chat/send`                         | Send a message in a chat                       |
 
-<!-- ## 🚀 Deployment
+## ⚡ Real-Time Chat (WebSockets)
 
-The backend is deployed on **[Your Hosting Platform]**. -->
+### **How It Works**
+
+- Uses **Socket.io** to enable real-time messaging between connected users.
+- Ensures only **accepted connections** can chat.
+- Listens for and emits events such as:
+  - `joinChat` → A user joins a chat room.
+  - `sendMessage` → A user sends a message.
+  - `receiveMessage` → The recipient gets the message instantly.
+
+### **Example Socket Events**
+
+```javascript
+socket.emit("joinChat", chatId);  // Join a chat room
+socket.emit("sendMessage", { chatId, senderId, message });  // Send message
+socket.on("receiveMessage", (newMessage) => { ... });  // Receive messages
+```
 
 ## 🛠️ Future Improvements
 
 - 📅 **Scheduled Matching System**
 - 🌎 **Multi-language Support**
 - 🎯 **Advanced Search & Filtering**
-- 📡 **WebSocket for real-time updates**
-- 💬 **realtime communication**
+- 🤖 **AI-powered Recommendations**
+- 📡 **Video & Voice Calls** (WebRTC)
 
 ## 📬 Contact
 
