@@ -73,7 +73,6 @@ npm run dev
 | GET    | `/user/connections`                  | View accepted connections                      |
 | GET    | `/feed`                              | View developer feed                            |
 | GET    | `/chat/:targetUserId`                | Fetch or create a chat between two users       |
-| POST   | `/chat/send`                         | Send a message in a chat                       |
 
 ## ⚡ Real-Time Chat (WebSockets)
 
